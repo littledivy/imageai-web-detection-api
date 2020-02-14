@@ -1,0 +1,75 @@
+<html>
+<head>
+<link rel="stylesheet" href="bulma.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>imageAI web api</title>
+		<style>
+		.upload-btn-wrapper{position:relative;overflow:hidden;display:inline-block}.upload-btn-wrapper input[type=file]{font-size:100px;position:absolute;left:0;top:0;opacity:0} @font-face { font-family:'archive'; src: url('Archive-Regular.ttf'); } * {font-family:'archive';} .is-gradient { background-image: linear-gradient(120deg,#2793DA,#355FE3); color:#fff; } .is-gradient:hover { animation: 1s colorSpin infinite; color:#fff; }
+@keyframes colorSpin {
+  0% {
+		background-image: linear-gradient(120deg,#2793DA,#355FE3);
+  }
+	
+  10% {
+    background-image: linear-gradient(120deg,#2793DA 20%, #355FE3);
+  }
+	20% {
+    background-image: linear-gradient(120deg,#2793DA 40%, #355FE3);
+  }
+	30% {
+    background-image: linear-gradient(120deg,#2793DA 60%, #355FE3);
+  }
+	40% {
+    background-image: linear-gradient(120deg,#2793DA 80%, #355FE3);
+  }
+	50% {
+    background-image: linear-gradient(120deg,#2793DA 100%, #355FE3);
+  }
+	60% {
+    background-image: linear-gradient(120deg,#355FE3 20%, #2793DA);
+  }
+	70% {
+    background-image: linear-gradient(120deg,#355FE3 40%, #2793DA);
+  }
+	80% {
+    background-image: linear-gradient(120deg,#355FE3 60%, #2793DA);
+  }
+	90% {
+    background-image: linear-gradient(120deg,#355FE3 80%, #2793DA);
+  }
+  100% {
+    background-image: linear-gradient(120deg,#355FE3 100%, #2793DA);
+  }
+}
+		</style>
+</head>
+<body>
+<section class="hero container is-fluid is-fullheight has-text-centered" style="align-items:center;">
+		<br>
+		<p class="title">ImageAI Detection WEB API</p>
+    <div class=hero-body>
+		  <form method=post enctype=multipart/form-data>
+			<div class="upload-btn-wrapper">
+         <button class="button">👆</button>
+	       <input type=file onchange="window.showImage(this);" name=photo class="file-cta is-fullwidth">
+        </div>
+		       <input type=submit value=Upload class="button is-gradient">
+			<img src="" class="image is-fullheight" style="border-radius:20px;" id="preview">
+		  </form>
+		</div>
+</section>
+    
+</body>
+<script>
+window.showImage = function(input) {
+if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                  console.log(e);
+		              document.getElementById("preview").src = e.target.result;
+                      };
+                reader.readAsDataURL(input.files[0]);
+	}
+}
+</script>
+</html>
